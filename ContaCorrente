@@ -1,0 +1,121 @@
+package ContaCorrente;
+
+public class ContaCorrente {
+	
+	private int numeroConta;
+	private int numeroAgencia;
+	public float saldo;
+	private String cliente;
+	
+	public int getNumeroConta() {
+		return numeroConta;
+	}
+	public void setNumeroConta(int numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+	public int getNumeroAgencia() {
+		return numeroAgencia;
+	}
+	public void setNumeroAgencia(int numeroAgencia) {
+		this.numeroAgencia = numeroAgencia;
+	}
+	public float getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
+	}
+	public String getCliente() {
+		return cliente;
+	}
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+	
+	
+	
+	
+
+}
+
+
+
+package ContaCorrente;
+
+import javax.swing.JOptionPane;
+
+
+public class Menu {
+
+	public String menuPrincipal(){
+		
+		String menu = "1 - Sacar \n";
+		menu += "2 - Depositar\n";
+		menu += "3 - Exibir Saldo\n";
+		menu += "4 - Sair\n";
+		
+		String retorno = JOptionPane.showInputDialog(menu);
+		
+		return retorno;
+		
+	}
+	
+	public String inputValor(){
+			
+			
+			String texto = "Informe o valor a ser sacado: ";
+			String retorno = JOptionPane.showInputDialog(texto);
+			
+			return retorno;
+			
+	}
+	
+	
+	
+	
+}
+
+
+
+package japa;
+
+import javax.swing.JOptionPane;
+
+public class UsaAgencia {
+
+	public static void main(String[] args) {
+
+		ContaCorrente conta = new ContaCorrente();
+
+		Menu menu = new Menu();
+		int opcao = 0;
+		String inputText;
+		Double valorOperacao = 0.0;
+		while (true) {
+
+			inputText = menu.menuPrincipal();
+
+			opcao = Integer.parseInt(inputText);
+			// sacar
+			if (opcao == 1) {
+
+				inputText = menu.inputValor();
+				valorOperacao = Double.parseDouble(inputText);
+				valorOperacao = conta.getSaldo() - valorOperacao;
+				conta.setSaldo(valorOperacao.floatValue());
+				JOptionPane.showMessageDialog(null, conta.getSaldo());
+
+			}
+			if (opcao == 2) {
+
+				String msg = "Até logo!!!";
+				JOptionPane.showMessageDialog(null, msg);
+				System.exit(0);
+
+			}
+
+		}
+
+	}
+
+}
