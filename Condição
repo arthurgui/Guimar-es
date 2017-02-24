@@ -1,0 +1,24 @@
+//CONDIÇÃO
+//package/
+
+public class Condicoes 
+{
+	public static void main (String [] args)
+	{
+		Scanner leitor = new Scanner (System.in);
+		System.out.println("Digite um número: ");
+		int x = leitor.nextInt();
+		
+		if ( x == 10 )
+		{
+			System.out.println (" Digite um númmero: ");
+			x = abre.nextInt
+
+
+		}else 
+		{
+			System.out.println ("x não é igual a 10");
+		}
+		System.out.println("e isso é enrolação!");
+	}
+} 
