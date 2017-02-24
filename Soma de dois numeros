@@ -1,0 +1,45 @@
+//package SomaDeDoisNumero
+
+/**
+ * Classe Soma de dois numeros
+ * @author Arthur Guimarães
+ *
+ */
+public class Soma 
+
+{
+	public static void main (String[] args)
+	{
+		int nota1 ;
+		int nota2;
+		int nota3;
+		int media, i, contAluno = 0;
+		Scnner ent = new Scanner (System.in)
+		
+		System.out.println(" Informe o primerio número: ",soma);
+		 System.out.println("Aluno " + contAluno + ", digite sua 1ª nota");
+
+         nota1 = ent.nextInt();
+
+         
+
+         // recebe a 2º nota
+
+         System.out.println("Aluno " + contAluno + ", digite sua 2ª nota");
+
+         nota2 = ent.nextInt();
+
+         
+
+         // recebe a 3º nota
+
+         System.out.println("Aluno " + contAluno + ", digite sua 3ª nota");
+
+         nota3 = ent.nextInt();
+
+         // media
+         media = (nota1 + nota2 + nota3)
+	}
+	
+	
+}
