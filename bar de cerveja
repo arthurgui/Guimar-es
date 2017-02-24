@@ -1,0 +1,30 @@
+ Implementar A MÚSICA DA CERVEJA 
+
+//PACKAGE CERVEJA :P 
+
+import Java.Util.Scanner;
+
+public class Cerveja {
+
+	public static void main (String[] args)
+	
+	{
+		private int cj;
+
+		Scanner leitor = new Scnner (System.in);
+
+		System.out.println(" Informe o número da Cerveja: ");
+
+		int cj = leitor.nextInt();
+
+		while (cj > 0 );
+		{
+			System.out.println(" A quantidade de cerveja é: ",cj);
+			cj = cj -1;
+		}
+
+	}else 
+	{
+		System.out.println(" Comprar mais cerveja!!! obs: bebado");
+	}
+}
