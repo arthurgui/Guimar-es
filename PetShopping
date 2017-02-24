@@ -1,0 +1,39 @@
+/**
+ * Exterminador de cachorro
+ * @author Arthur Guimarães
+ *
+ */
+public class Canil {
+	public void alojar()
+	{
+		System.out.println("Alojando cachorro");
+	}
+	
+	/**
+	 * Esse método realiza o exterminio de cachorro
+	 * @author Arthur Guimarães
+	 */
+	public void exterminaCachorro(String nome)
+	{
+		System.out.println("Exterminando Cachorro");
+	}
+}
+/**
+ * 
+ * @author Arthur Guimarães
+ *
+ */
+
+public class UsaCanil {
+
+	public static void main(String[] args) {
+		
+		Canil masmorra = new Canil();
+		masmorra.alojar();
+		
+		masmorra.exterminarCachorro("Snow");
+		
+
+	}
+
+}
