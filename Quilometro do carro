@@ -1,0 +1,23 @@
+//package Quilometrosrodados;
+
+import Java.util.Scanner;
+
+public class Quilometrosrodados {
+	public static void main (String[] args{
+		Scanner abre  = new Scanner(System.in);
+		double km;
+		double consumo;
+		int Litros;
+		
+		System.out.println("Informe os quilometros: ");
+		km = abre.nextDouble();
+		
+		System.out.println("Digite a quantidade de litros de combustivel colocado: ");
+		litros= abre.nextInt()
+		
+		consumo = (double) (km/litro);
+		
+		System.out.println(" O consumo é: ", + consumo);
+		
+	}
+}
