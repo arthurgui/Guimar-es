@@ -1,0 +1,17 @@
+public class Nome_da_pessoa_e_idade {
+	public static void main (String[] agrs)
+	{
+		Scanner abre = new Scanner(System.in);
+		
+		String nome;
+		int idade;
+		
+		Systen.ou.println("digite seu nome: ");
+		nome = abre.nextInt();
+		
+		System.out.println("digite sua idade:" );
+		idade = abre.nextInt();
+	}
+	
+
+}
