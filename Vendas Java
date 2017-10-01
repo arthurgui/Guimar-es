@@ -1,0 +1,417 @@
+package venda;
+
+
+
+public class Venda {
+
+	// Valor de desconto aplicado ao total da venda
+
+	private double desconto;
+
+	
+
+	// Valor da total da venda, já com desconto
+
+	private double total;
+
+	
+
+	// Valor subtotal da venda, desconto não incluso
+
+	private double subTotal;
+
+	
+
+	private int qtdItens;
+
+	private double comissao;
+
+	
+
+	// Vendedor associado à venda
+
+	public Vendedor vendedor;
+
+	
+
+	// Produtos comprados na venda
+
+	public Produto produto;
+
+	
+
+	// Metodos da classe
+
+	/**
+
+	 * Calcula o total da venda.
+
+	 */
+
+	public void calcularTotal(){
+
+		this.setTotal(this.qtdItens * this.subTotal - this.desconto);
+
+	}
+
+	/**
+
+	 * Calcula o total da venda, incluindo o valor da porcentagem
+
+	 * @param porcentagemDesconto
+
+	 */
+
+	public void calcularTotal(double porcentagemDesconto){
+
+		this.efetuarDesconto(porcentagemDesconto);
+
+		this.calcularTotal();
+
+	}
+
+	public void calcularComissao(){
+
+		this.comissao = Vendedor.comissao * this.subTotal;
+
+	}
+
+	public void efetuarDesconto(double porcentagem){
+
+		double subTotal = this.getSubTotal();
+
+		this.setDesconto(subTotal*porcentagem);
+
+	}
+
+	public void imprimir(){
+
+		System.out.println(this.vendedor);
+
+		System.out.println("Quantidade:" + this.getQtdItens());
+
+		System.out.println("Valor do produto: " + this.produto.getValorVenda());
+
+		System.out.println("Promocional: "+ this.produto.isPromocional());
+
+		System.out.println("Desconto: " + this.getDesconto());
+
+		System.out.println("Total: "+ this.getTotal());
+
+	}
+
+	
+
+	/*	Getters e Setters	*/
+
+	public double getDesconto() {
+
+		return desconto;
+
+	}
+
+	public void setDesconto(double desconto) {
+
+		this.desconto = desconto;
+
+	}
+
+	public double getTotal() {
+
+		return total;
+
+	}
+
+	public void setTotal(double total) {
+
+		this.total = total;
+
+	}
+
+	
+
+	public double getSubTotal() {
+
+		return subTotal;
+
+	}
+
+	public void setSubTotal(double subTotal) {
+
+		this.subTotal = subTotal;
+
+	}
+
+	public int getQtdItens() {
+
+		return qtdItens;
+
+	}
+
+	public void setQtdItens(int qtdItens) {
+
+		this.qtdItens = qtdItens;
+
+	}
+
+	public Vendedor getVendedor() {
+
+		return vendedor;
+
+	}
+
+	public void setVendedor(Vendedor vendedor) {
+
+		this.vendedor = vendedor;
+
+	}
+
+	public Produto getProduto() {
+
+		return produto;
+
+	}
+
+	public void setProduto(Produto produto) {
+
+		this.produto = produto;
+
+	}
+
+	public double getComissao() {
+
+		return comissao;
+
+	}
+
+	public void setComissao(double comissao) {
+
+		this.comissao = comissao;
+
+	}
+
+	
+
+	
+
+	
+
+}
+package venda;
+
+
+
+public class Vendedor {
+
+	private String codigo;
+
+	public static double comissao;
+
+	private String endereco;
+
+	private String nome;
+
+	
+
+	/**
+
+	 * Construtor da classe recebe o Nome, Endereço e Codigo do vendedor
+
+	 * @param nome : do vendedor
+
+	 * @param endereco
+
+	 * @param codigo : identificador do vendedor
+
+	 */
+
+	public Vendedor(String nome, String endereco, String codigo){
+
+		this.setNome(nome);
+
+		this.setEndereco(endereco);
+
+		this.setCodigo(codigo);
+
+	}
+
+	public String toString(){
+
+		return "Código: " + this.getCodigo() +"Nome:" +this.getNome()+ "Endereço: "+ this.getEndereco();
+
+	}
+
+	/*	Getters e Setters	*/
+
+	public String getCodigo() {
+
+		return codigo;
+
+	}
+
+	public void setCodigo(String codigo) {
+
+		this.codigo = codigo;
+
+	}
+
+	public String getEndereco() {
+
+		return endereco;
+
+	}
+
+	public void setEndereco(String endereco) {
+
+		this.endereco = endereco;
+
+	}
+
+	public String getNome() {
+
+		return nome;
+
+	}
+
+	public void setNome(String nome) {
+
+		this.nome = nome;
+
+	}
+
+	
+
+	
+
+}
+package venda;
+
+
+
+public class Produto {
+
+	private String codigo;
+
+	private double valorVenda;
+
+	private double valorCusto;
+
+	private String descricao;
+
+	private boolean promocional;
+
+	/**
+
+	 * 
+
+	 * @param codigo : codigo identificador do produto
+
+	 * @param descricao : descrição do que é o produto
+
+	 * @param vv : Valor de Venda do produto
+
+	 * @param vc : Valor de Custo do produto
+
+	 */
+
+	public Produto(String codigo, String descricao, double vv, double vc){
+
+		this.setCodigo(codigo);
+
+		this.setDescricao(descricao);
+
+		this.setValorVenda(vv);
+
+		this.setValorCusto(vc);
+
+	}
+
+	
+
+	/*	Getters e Setters	*/
+
+	
+
+	public String getCodigo() {
+
+		return codigo;
+
+	}
+
+
+
+	public boolean isPromocional() {
+
+		return promocional;
+
+	}
+
+
+
+	public void setPromocional(boolean promocional) {
+
+		this.promocional = promocional;
+
+	}
+
+
+
+	public void setCodigo(String codigo) {
+
+		this.codigo = codigo;
+
+	}
+
+
+
+	public double getValorVenda() {
+
+		return valorVenda;
+
+	}
+
+
+
+	public void setValorVenda(double valorVenda) {
+
+		this.valorVenda = valorVenda;
+
+	}
+
+
+
+	public double getValorCusto() {
+
+		return valorCusto;
+
+	}
+
+
+
+	public void setValorCusto(double valorCusto) {
+
+		this.valorCusto = valorCusto;
+
+	}
+
+
+
+	public String getDescricao() {
+
+		return descricao;
+
+	}
+
+
+
+	public void setDescricao(String descricao) {
+
+		this.descricao = descricao;
+
+	}
+
+	
+
+	
+
+}
