@@ -1,0 +1,726 @@
+package seguradora;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+ */
+
+public class ContratoResidencial extends Clientes{
+
+    
+
+    private String end;
+
+    private double valorImovel;
+
+    private int zona;
+
+    private int tipoResidencia;
+
+
+
+    public String getEnd() {
+
+        return end;
+
+    }
+
+
+
+    public void setEnd(String end) {
+
+        this.end = end;
+
+    }
+
+
+
+    public double getValorImovel() {
+
+        return valorImovel;
+
+    }
+
+
+
+    public void setValorImovel(double valorImovel) {
+
+        this.valorImovel = valorImovel;
+
+    }
+
+
+
+    public int getZona() {
+
+        return zona;
+
+    }
+
+
+
+    public void setZona(int zona) {
+
+        this.zona = zona;
+
+    }
+
+
+
+    public int getTipoResidencia() {
+
+        return tipoResidencia;
+
+    }
+
+
+
+    public void setTipoResidencia(int tipoResidencia) {
+
+        this.tipoResidencia = tipoResidencia;
+
+    }
+
+    
+
+    
+
+    
+
+}
+Raw 
+ gistfile2.txt 
+
+package seguradora;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class ContratoEmpresarial extends Clientes{
+
+    
+
+    private double valorImovel;
+
+    private int nFuncionarios;
+
+    private int nVisitas;
+
+    private int ramo;
+
+
+
+    public double getValorImovel() {
+
+        return valorImovel;
+
+    }
+
+
+
+    public void setValorImovel(double valorImovel) {
+
+        this.valorImovel = valorImovel;
+
+    }
+
+
+
+    public int getnFuncionarios() {
+
+        return nFuncionarios;
+
+    }
+
+
+
+    public void setnFuncionarios(int nFuncionarios) {
+
+        this.nFuncionarios = nFuncionarios;
+
+    }
+
+
+
+    public int getnVisitas() {
+
+        return nVisitas;
+
+    }
+
+
+
+    public void setnVisitas(int nVisitas) {
+
+        this.nVisitas = nVisitas;
+
+    }
+
+
+
+    public int getRamo() {
+
+        return ramo;
+
+    }
+
+
+
+    public void setRamo(int ramo) {
+
+        this.ramo = ramo;
+
+    }
+
+   
+
+    
+
+    
+
+}
+Raw 
+ gistfile3.txt 
+
+package seguradora;
+
+
+
+import java.util.Scanner;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class Principal {
+
+
+
+    public static void main(String[] args) {
+
+        Scanner leitor = new Scanner(System.in);        
+
+        int op;
+
+        SeguroEmpresarial s = new SeguroEmpresarial();
+
+        SeguroResidencial se = new SeguroResidencial();
+
+              
+
+        CadastrarClientes c = new CadastrarClientes();
+
+        
+
+        c.cadastrarCliente();
+
+        
+
+        System.out.println("Fazer seguro de empresa ou residência? (1 - empresa) (2 - residência)");
+
+        op = leitor.nextInt();
+
+        
+
+        if(op == 1)
+
+            s.calculoSeguro();
+
+        else
+
+            se.calculoSeguro();
+
+    }
+
+    
+
+}
+Raw 
+ gistfile4.txt 
+
+package seguradora;
+
+
+
+import java.util.Scanner;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class Principal {
+
+
+
+    public static void main(String[] args) {
+
+        Scanner leitor = new Scanner(System.in);        
+
+        int op;
+
+        SeguroEmpresarial s = new SeguroEmpresarial();
+
+        SeguroResidencial se = new SeguroResidencial();
+
+              
+
+        CadastrarClientes c = new CadastrarClientes();
+
+        
+
+        c.cadastrarCliente();
+
+        
+
+        System.out.println("Fazer seguro de empresa ou residência? (1 - empresa) (2 - residência)");
+
+        op = leitor.nextInt();
+
+        
+
+        if(op == 1)
+
+            s.calculoSeguro();
+
+        else
+
+            se.calculoSeguro();
+
+    }
+
+    
+
+}
+Raw 
+ gistfile5.txt 
+
+package seguradora;
+
+
+
+import java.util.InputMismatchException;
+
+import java.util.Scanner;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class SeguroResidencial {
+
+    
+
+    public void calculoSeguro(){
+
+        double resultado;
+
+        double vZona = 0.0;
+
+        double vResidencia = 0.0;
+
+        ContratoResidencial cr = new ContratoResidencial();
+
+        
+
+        Scanner leitor = new Scanner(System.in);
+
+        
+
+        System.out.println("Digite o valor do imovel: ");
+
+        double vImovel = leitor.nextDouble();
+
+        
+
+        cr.setValorImovel(vImovel);
+
+        
+
+        System.out.println("Digite o tipo da zona: (1 - Urbana) (2 - Suburbana) (3 - Rural) ");
+
+        int zona = leitor.nextInt();
+
+        
+
+        cr.setZona(zona);
+
+        
+
+        System.out.println("Digite o tipo da residência: (1 - Casa) (2 - Apartamento) ");
+
+        int residencia = leitor.nextInt();
+
+        
+
+        cr.setTipoResidencia(residencia);
+
+        
+
+        
+
+        
+
+        try {
+
+            
+
+            if(cr.getZona() == 1){
+
+                
+
+                vZona = cr.getValorImovel()*0.01;
+
+                
+
+            }else if(cr.getZona() == 2){
+
+                
+
+                vZona = cr.getValorImovel()*0.005;
+
+                
+
+            }
+
+            if(cr.getTipoResidencia() == 1){
+
+                
+
+                vResidencia = cr.getValorImovel()*0.005;
+
+                
+
+            }
+
+            
+
+            resultado = (cr.getValorImovel()*0.02) + vResidencia + vZona;
+
+            System.out.println("O valor do Seguro Residencial é de R$" + resultado);
+
+            
+
+        } catch (Exception e) {
+
+        }
+
+        
+
+    }
+
+    
+
+}
+Raw 
+ gistfile6.txt 
+
+package seguradora;
+
+
+
+import java.io.FileWriter;
+
+import java.io.IOException;
+
+import java.io.PrintWriter;
+
+import java.util.Scanner;
+
+import java.util.logging.Level;
+
+import java.util.logging.Logger;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class CadastrarClientes {
+
+
+
+    public void cadastrarCliente(){
+
+        Scanner leitor = new Scanner(System.in);
+
+        Clientes cl = new Clientes();
+
+        int op;
+
+        String nome;
+
+        
+
+        do{
+
+            
+
+            System.out.println("Tpo do cliente (1 - Pessoa física) (2 - Pessoa jurídica):");
+
+            int tipo = leitor.nextInt();
+
+
+
+            cl.setTipoPessoa(tipo);
+
+
+
+            System.out.println("Digite o nome do cliente: ");
+
+            nome = leitor.nextLine();
+
+
+
+            cl.setNome(nome);
+
+
+
+            System.out.println("Deseja cadastrar outro cliente? (1 - sim) (2 - não)");
+
+            op = leitor.nextInt();
+
+            
+
+        }while(op == 1);
+
+        
+
+        
+
+    }
+
+    
+
+    
+
+}
+Raw 
+ Seguradora - exceção 
+
+package seguradora;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class Clientes {
+
+
+
+    private String nome;
+
+    private String cpf;
+
+    private int idade;
+
+    private int tipoPessoa;
+
+
+
+    public int getTipoPessoa() {
+
+        return tipoPessoa;
+
+    }
+
+
+
+    public void setTipoPessoa(int tipoPessoa) {
+
+        this.tipoPessoa = tipoPessoa;
+
+    }
+
+
+
+    public String getNome() {
+
+        return nome;
+
+    }
+
+
+
+    public void setNome(String nome) {
+
+        this.nome = nome;
+
+    }
+
+
+
+    public String getCpf() {
+
+        return cpf;
+
+    }
+
+
+
+    public void setCpf(String cpf) {
+
+        this.cpf = cpf;
+
+    }
+
+
+
+    public int getIdade() {
+
+        return idade;
+
+    }
+
+
+
+    public void setIdade(int idade) {
+
+        this.idade = idade;
+
+    }
+
+    
+
+    
+
+    
+
+    
+
+}
+
+package seguradora;
+
+
+
+/**
+
+ *
+
+ * @author arthur
+
+ */
+
+public class ContratoResidencial extends Clientes{
+
+    
+
+    private String end;
+
+    private double valorImovel;
+
+    private int zona;
+
+    private int tipoResidencia;
+
+
+
+    public String getEnd() {
+
+        return end;
+
+    }
+
+
+
+    public void setEnd(String end) {
+
+        this.end = end;
+
+    }
+
+
+
+    public double getValorImovel() {
+
+        return valorImovel;
+
+    }
+
+
+
+    public void setValorImovel(double valorImovel) {
+
+        this.valorImovel = valorImovel;
+
+    }
+
+
+
+    public int getZona() {
+
+        return zona;
+
+    }
+
+
+
+    public void setZona(int zona) {
+
+        this.zona = zona;
+
+    }
+
+
+
+    public int getTipoResidencia() {
+
+        return tipoResidencia;
+
+    }
+
+
+
+    public void setTipoResidencia(int tipoResidencia) {
+
+        this.tipoResidencia = tipoResidencia;
+
+    }
+
+    
+
+    
+
+    
+
+}
